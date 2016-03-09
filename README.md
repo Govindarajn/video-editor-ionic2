@@ -1,11 +1,13 @@
 ## VideoEditor: An Ionic 2 App :camera: :video_camera: :scissors:
 
-This is an Ionic 2 app that shows how to use the great [cordova-plugin-video-editor](https://github.com/jbavari/cordova-plugin-video-editor) and [cordova-plugin-instagram-assets-picker](https://github.com/rossmartin/cordova-plugin-instagram-assets-picker) plugins. It allows transcoding a video with every possible setting the video editor plugin provides as well as trimming, creating thumbnails, and getting video info (width, height orientation, duration, size, & bitrate).
+This is an Ionic 2 app that shows how to use the [cordova-plugin-video-editor](https://github.com/jbavari/cordova-plugin-video-editor) and [cordova-plugin-instagram-assets-picker](https://github.com/rossmartin/cordova-plugin-instagram-assets-picker) plugins. It allows transcoding a video with every possible setting the video editor plugin provides as well as trimming, creating thumbnails, and getting video info (width, height orientation, duration, size, & bitrate).
 
 ![GIF](example.gif)
 
-Watch the video [here](https://youtu.be/WddM6xNlOuA).
+Watch the video [here](https://youtu.be/U0O2gG4N0JM).
 
+
+### How to try the app
 1. Install the the latest beta version of the Ionic CLI:
     ```
     npm install -g ionic@beta
