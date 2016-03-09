@@ -29,3 +29,5 @@ Watch the video [here](https://youtu.be/WddM6xNlOuA).
 From here you can build and run the app on different platforms using the traditional Ionic commands (`ionic build ios`, etc.)
 
 I have only tested this app on iOS but it should run fine on Android.  Transcoding videos on Android will be much slower because the video editor plugin uses ffmpeg on Android.  I have had terrible luck with HTML5 videos in the past on Android as well so YMMV there also.
+
+I can't get everything in the app to work with the WkWebView.  Setting a time range on a video and the cover frame is still really smooth in iOS 9 though.  One particular issue with the WkWebView is that you cannot set `allowsInlineMediaPlayback` to true and this is a problem for HTML5 video.
