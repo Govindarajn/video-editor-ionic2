@@ -28,7 +28,13 @@ Watch the video [here](https://youtu.be/U0O2gG4N0JM).
     npm install
     ```
 
-From here you can build and run the app on different platforms using the traditional Ionic commands (`ionic build ios`, etc.)
+1. Add the necessary cordova plugins
+```
+ionic plugin add cordova-plugin-camera cordova-plugin-device cordova-plugin-media-capture https://github.com/driftyco/ionic-plugin-keyboard.git cordova-plugin-statusbar cordova-plugin-spinner-dialog cordova-plugin-instagram-assets-picker cordova-plugin-video-editor
+```
+The plugins in the package.json aren't being automatically installed when doing `ionic platform install ios`.  I think this is a bug with the Ionic beta CLI.  The `ionic state restore` is also not working :disappointed:
+
+From here you can build and run the app on different platforms using the traditional Cordova/Ionic CLI commands (`cordova build ios`, etc.).  My mac has been having issues getting `ionic build` and `ionic emulate` to work but `cordova build` and `cordova emulate` work fine for me.  I'm not the only one experiencing this, see [here](https://github.com/driftyco/ionic-cli/issues/593) and [here](https://github.com/driftyco/ionic-cli/issues/586).
 
 I have only tested this app on iOS but it should run fine on Android.  Transcoding videos on Android will be much slower because the video editor plugin uses ffmpeg on Android.  I have had terrible luck with HTML5 videos in the past on Android as well so YMMV there also.
 
