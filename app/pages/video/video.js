@@ -80,7 +80,7 @@ export class VideoPage {
       InstagramAssetsPicker.cropAsset(
         (result) => {
           console.log('InstagramAssetsPicker cropAsset success, result: ', result);
-          this.createThumbnail(result);
+          this.createThumbnail(result.filePath);
         },
         (err) {
           console.log('InstagramAssetsPicker cropAsset error, err: ', err);
