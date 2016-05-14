@@ -1,4 +1,5 @@
-import {App, Platform} from 'ionic/ionic';
+import {App, Platform} from 'ionic-angular';
+import {StatusBar} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
 
 
@@ -7,7 +8,11 @@ import {TabsPage} from './pages/tabs/tabs';
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {
-  constructor(platform: Platform) {
+  static get parameters() {
+    return [[Platform]];
+  }
+
+  constructor(platform) {
     this.rootPage = TabsPage;
 
     platform.ready().then(() => {
@@ -17,9 +22,9 @@ export class MyApp {
           cordova.plugins.Keyboard.disableScroll(true);
         }
 
-        if (window.StatusBar) {
+        if (StatusBar) {
           StatusBar.styleDefault();
-        }  
+        }
       }
     });
   }

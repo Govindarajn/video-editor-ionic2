@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic/ionic';
+import {Page, NavController} from 'ionic-angular';
 import {NgZone} from 'angular2/core';
 import {EditVideoPage} from '../edit-video/edit-video';
 
@@ -7,7 +7,11 @@ import {EditVideoPage} from '../edit-video/edit-video';
   templateUrl: 'build/pages/video/video.html'
 })
 export class VideoPage {
-  constructor(nav:NavController) {
+  static get parameters() {
+    return [[NavController]];
+  }
+
+  constructor(nav) {
     this.zone = new NgZone({ enableLongStackTrace: false });
     this.nav = nav;
   }
@@ -82,7 +86,7 @@ export class VideoPage {
           console.log('InstagramAssetsPicker cropAsset success, result: ', result);
           this.createThumbnail(result.filePath);
         },
-        (err) {
+        (err) => {
           console.log('InstagramAssetsPicker cropAsset error, err: ', err);
           window.plugins.spinnerDialog.hide();
         },
@@ -96,8 +100,8 @@ export class VideoPage {
       (result) => {
         window.plugins.spinnerDialog.hide();
         this.nav.push(EditVideoPage, {
-            videoPath: videoPath,
-            thumbnailPath: result
+          videoPath: videoPath,
+          thumbnailPath: result
         });
       },
       (err) => {
@@ -106,7 +110,7 @@ export class VideoPage {
       },
       {
         fileUri: videoPath,
-        outputFileName: new Date().getTime()
+        outputFileName: new Date().getTime(),
         atTime: 0,
         quality: 100
       }

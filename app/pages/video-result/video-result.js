@@ -1,4 +1,4 @@
-import {Page, NavController, NavParams} from 'ionic/ionic';
+import {Page, NavController, NavParams} from 'ionic-angular';
 import {NgZone} from 'angular2/core';
 import {VideoPage} from '../video/video';
 
@@ -7,7 +7,11 @@ import {VideoPage} from '../video/video';
   templateUrl: 'build/pages/video-result/video-result.html'
 })
 export class VideoResultPage {
-  constructor(nav:NavController, navParams:NavParams) {
+  static get parameters() {
+    return [[NavController], [NavParams]];
+  }
+
+  constructor(nav, navParams) {
     this.zone = new NgZone({ enableLongStackTrace: false });
     this.nav = nav;
     this.videoPath = navParams.get('videoPath');

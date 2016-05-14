@@ -1,15 +1,29 @@
-import {Page, NavController, Alert} from 'ionic/ionic';
+import {Page, NavController, Alert} from 'ionic-angular';
 
 
 @Page({
   templateUrl: 'build/pages/settings/settings.html'
 })
 export class SettingsPage {
-  constructor(nav:NavController) {
-    this.nav = nav;
+  static get parameters() {
+    return [[NavController]];
   }
 
-  onPageWillEnter() {
+  constructor(nav) {
+    this.nav = nav;
+    this.setupSettings();
+  }
+
+  onPageDidEnter() {
+    if (!window.localStorage['shownInfoAboutWidthHeight']) {
+      setTimeout(() => {
+        this.showOptionInfo();
+      }, 200);
+      window.localStorage['shownInfoAboutWidthHeight'] = true;
+    }
+  }
+
+  setupSettings() {
     let ls = window.localStorage;
     this.settings = {
       width: ls['width'] || 0,
@@ -26,15 +40,6 @@ export class SettingsPage {
       thumbnailQuality: ls['thumbnailQuality'] || 100,
       thumbnailMaintainAspectRatio: ls['thumbnailMaintainAspectRatio'] || true
     };
-  }
-
-  onPageDidEnter() {
-    if (!window.localStorage['shownInfoAboutWidthHeight']) {
-      setTimeout(() => {
-        this.showOptionInfo();
-      }, 200);
-      window.localStorage['shownInfoAboutWidthHeight'] = true;
-    }
   }
 
   onSettingChange() {
