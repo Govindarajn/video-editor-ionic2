@@ -52,7 +52,8 @@ export class VideoPage {
         },
         {
           type: 'video',
-          cropAfterSelect: false
+          cropAfterSelect: false,
+          showGrid: false
         }
       );
 
